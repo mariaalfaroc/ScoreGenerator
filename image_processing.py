@@ -6,7 +6,7 @@ import cv2
 import verovio
 from cairosvg import svg2png
 import numpy as np
-from pgmagick import Image
+from pgmagick import Image, Geometry, NoiseType
 
 
 # IMAGE PROCESSING WORKFLOW
@@ -109,16 +109,14 @@ def distort(crop_path: str, extensionImage: str):
         if cropfile.endswith(extensionImage):
             im = Image(cropfile)
             im.implode(round(random.uniform(0.00, 0.07), 2))
-            # TODO See how to use im.chop
-            #im.chop(int(random.randint(1, 5)), int(random.randint(1, 6)), int(random.randint(1, 300)), int(random.randint(1, 50)))
+            im.chop(Geometry(int(random.randint(1, 5)), int(random.randint(1, 6)), int(random.randint(1, 300)), int(random.randint(1, 50))))
             im.swirl(round(random.uniform(-3.00, 3.00), 2))
             im.spread(2)
             im.shear(round(random.uniform(-5.00, 5.00), 2), round(random.uniform(-1.50, 1.50), 2))
             im.shade(round(random.uniform(0.00, 120.00), 2), round(random.uniform(80.00, 110.00), 2))
             im.wave(round(random.uniform(0.00, 0.50), 2), round(random.uniform(0.00, 0.40), 2))
             im.rotate(round(random.uniform(0.00, 0.30), 2))
-            # TODO See how to use im.addNoise
-            # im.addNoise(round(random.uniform(0.00, 1.20), 2))
+            im.addNoise(NoiseType(round(random.uniform(0.00, 1.20), 2)))
             im.wave(round(random.uniform(0.00, 0.50), 2), round(random.uniform(0.00, 0.40), 2))
             im.motionBlur(round(random.uniform(-7.00, 5.00), 2), round(random.uniform(-7.00, 7.00), 2), round(random.uniform(-7.00, 6.00), 2))
             im.medianFilter(round(random.uniform(0.00, 1.10), 2))

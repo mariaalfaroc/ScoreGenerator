@@ -290,7 +290,8 @@ def ag_chord(notes: list):
 
 
 # -- AGNOSTIC FILTERING  -- #
-# About music notation of rest:
+# TODO Ask if this affects the kern file too
+# About music notation of rests:
 # 1) If a rest (dotted or not) occupies the full bar, it is a measure rest, i.e., a whole rest
 # 2) When there are several rests in a row (bearing in mind that the rest's duration equals measure's duration),
 # the musical notation of putting one rest after another is broken in order to use a series of symbols,
