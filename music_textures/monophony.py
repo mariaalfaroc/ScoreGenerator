@@ -3,11 +3,12 @@
 import manager
 import symbol
 from dictionary import pitches, chooseClef, chooseKey, chooseTimeSig
+import tqdm
 
 
 def loop_generation(numScores: int, numBars: int, typeAgnostic: str):
     manager.create_folds()
-    for i in range(numScores):
+    for i in tqdm.tqdm(range(numScores)):
         scoreGenerator(i, numBars, typeAgnostic)
     return
 

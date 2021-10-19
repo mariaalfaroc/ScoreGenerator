@@ -302,11 +302,11 @@ def removefiles(files: list, extension: str):
     print("{} scores have been deleted".format(del_size))
 
 
-def preprareforOMR(musicTexture: str, typeAgnostic: str):
+def preprareforOMR(musicTexture: str, typeAgnostic: str, nstaves: int):
     # Convert HUMDRUM **KERN files to SVG
     imgprocess.kerntosvg(kern_path=kern_path, kern_folder=KERN_FOLDER, svg_folder=SVG_FOLDER, extensionKern=extensionKern)
     # Check for those that do not meet end-to-end conditions (single-staff section or pair-staff section, as appropriate)
-    del_files = imgprocess.getMultiStaff(svg_path=svg_path, mode=musicTexture)
+    del_files = imgprocess.getMultiStaff(svg_path=svg_path, mode=musicTexture, numStaves=nstaves)
     # Remove those files
     removefiles(files=del_files, extension='.svg')
     # Convert to PNG to be able to crop images to standard size

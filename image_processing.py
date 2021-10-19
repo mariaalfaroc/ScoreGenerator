@@ -28,7 +28,7 @@ def kerntosvg(kern_path: str, kern_folder: str, svg_folder: str, extensionKern: 
     return
 
 
-def getMultiStaff(svg_path: str, mode: str):
+def getMultiStaff(svg_path: str, mode: str, numStaves: int):
     svgfiles = glob.glob(svg_path + '/*')
     deleted = []
 
@@ -37,7 +37,7 @@ def getMultiStaff(svg_path: str, mode: str):
             data = file.read()
             times = data.count('clef')
         if mode == 'mono' or mode == 'homo' or mode == 'poly-ss':
-            if times > 1:
+            if times > numStaves:
                 deleted.append(svgfile)
         elif mode == 'piano-mono' or mode == 'piano-homo':
             if times > 2:

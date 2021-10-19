@@ -12,7 +12,7 @@ from music_textures import monophony, homophony, piano_mono, piano_homo
 
 
 # Function to generate the indicated number scores with corresponding music texture
-def scoreGenerator(numScores: int, musicTexture: str, numBars: int, typeAgnostic: str):
+def scoreGenerator(numScores: int, musicTexture: str, numBars: int, typeAgnostic: str, nstaves:int):
     symbol.valueMode(musicTexture=musicTexture)
 
     print('Music texture: {}'. format(musicTexture))
@@ -28,6 +28,6 @@ def scoreGenerator(numScores: int, musicTexture: str, numBars: int, typeAgnostic
     elif musicTexture == 'piano-homo':
         piano_homo.loop_generation(numScores=numScores, numBars=numBars, typeAgnostic=typeAgnostic)
 
-    manager.preprareforOMR(musicTexture=musicTexture, typeAgnostic=typeAgnostic)
+    manager.preprareforOMR(musicTexture=musicTexture, typeAgnostic=typeAgnostic, nstaves=nstaves)
 
     return

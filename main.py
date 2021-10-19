@@ -16,6 +16,7 @@ def menu():
     parser.add_argument('-numB', required=True, help='Number of bars/measures per score', type=int)
     parser.add_argument('-typeAg', required=True, help='Separator for the agnostic representation', choices=INPUT_AG,
                         type=str)
+    parser.add_argument('-limitS', required=True, help='Number of maximum staves per page', type=int)
     return parser.parse_args()
 
 
@@ -29,5 +30,6 @@ if __name__ == "__main__":
     scoreGenerator(numScores=args.numS,
                    musicTexture=args.mode,
                    numBars=args.numB,
-                   typeAgnostic=args.typeAg
+                   typeAgnostic=args.typeAg,
+                   nstaves=args.limitS
                    )
