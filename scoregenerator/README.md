@@ -1,8 +1,23 @@
-# ScoreGenerator
+<h1 align="center">Music Score Generator</h1>
 
-**Music Score Generator implemented in Python**
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.9.0-orange" alt="Python">
+  <img src="https://img.shields.io/static/v1?label=License&message=MIT&color=blue" alt="License">
+</p>
 
-It generates single-staff section scores of one of the following music textures:
+
+<p align="center">
+  <a href="#about">About</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#citations">Citations</a> •
+  <a href="#acknowledgments">Acknowledgments</a> •
+  <a href="#license">License</a>
+</p>
+
+
+## About
+
+Music score generator implemented in Python. It generates single-staff section scores of one of the following music textures:
 - *monophonic*: only one note (per staff) is played at a time.
 - *homophonic*: multiple notes can occur at the same time to build up a chord, but only as a single
 voice.
@@ -13,7 +28,7 @@ voice.
 When run, it creates an output folder `OUT` in the main directory of the project.
 In the `OUT` folder we find:
 ```
-ScoreGenerator
+scoregenerator
 │   ....  
 └───OUT
     └───AGNOSTIC
@@ -37,21 +52,60 @@ ScoreGenerator
                 In Proceedings of the 19th International Society for Music Information Retrieval Conference, Paris.2018, pp.248-255
 ```
 
+## How To Use
 
-Example of usage:
+To run the code, you'll need to meet certain requirements which are specified in the [`requirements`](requirements.txt) file. Once you have prepared your environment, follow this recipe:
+
 ```python
 python main.py -numS 4 -numB 4 -mode mono -typeAg standard
 ```
-Arguments:
-- numS, indicates the number of scores to generate
-- numB, indicates the number of bars per score
-- mode, indicates the music textures of the generated scores (choices are mono, homo, poly-ss, piano-mono, piano-homo)
-- typeAg, indicates the separator used in the agnostic encoding between the two tokens that made up a single symbol (choices are standard (separator is ':') or split (separator is a blank space))
 
----
+The script above generates four scores, each containing four bars of monophonic music with the standard encoding separator. However, the generator is designed to offer flexibility in music generation. Feel free to experiment with different parameter values to create diverse musical compositions.
 
-Requirements:
-- OpenCV
-- Verovio
-- PgMagick
-- CairoSVG
+Here are the available command-line arguments:
+- `numS`: Indicates the number of scores to generate.
+- `numB`: Indicates the number of bars per score.
+- `mode`: Specifies the music texture of the generated scores. Choices include:
+  - `mono`: Monophonic texture.
+  - `homo`: Homophonic texture.
+  - `poly-ss`: Polyphonic texture.
+  - `piano-mono`: Pianoform monophonic texture.
+  - `piano-homo`: Pianoform homophonic texture.
+- `typeAg`: Specifies the separator used in the agnostic encoding between the two tokens that make up a single symbol. Choices include:
+  - `standard`: Separator is ':'.
+  - `split`: Separator is a blank space.
+
+
+## Citations
+
+```bibtex
+@inproceedings{alfaro2019approaching,
+  title     = {{Approaching End-to-End Optical Music Recognition for Homophonic Scores}},
+  author    = {Alfaro-Contreras, Mar{\'\i}a and Calvo-Zaragoza, Jorge and I{\~n}esta, Jos{\'e} M},
+  booktitle = {{Proceedings of the 9th Iberian Conference on Pattern Recognition and Image Analysis}},
+  pages     = {147--158},
+  year      = {2019},
+  publisher = {Springer},
+  address   = {Madrid, Spain},
+  month     = jul,
+  doi       = {10.1007/978-3-030-31321-0_13},
+}
+@article{alfaro2023optical,
+  title     = {{Optical music recognition for homophonic scores with neural networks and synthetic music generation}},
+  author    = {Alfaro-Contreras, Mar{\'\i}a and I{\~n}esta, Jos{\'e} M and Calvo-Zaragoza, Jorge},
+  journal   = {{International Journal of Multimedia Information Retrieval}},
+  volume    = {12},
+  number    = {1},
+  pages     = {12--24},
+  year      = {2023},
+  publisher = {Springer},
+  doi       = {10.1007/s13735-023-00278-5},
+}
+```
+
+## Acknowledgments
+
+This work is part of the I+D+i PID2020-118447RA-I00 ([MultiScore](https://sites.google.com/view/multiscore-project)) project, funded by MCIN/AEI/10.13039/501100011033.
+
+## License
+This work is under a [MIT](LICENSE) license.
