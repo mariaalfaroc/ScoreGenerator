@@ -36,7 +36,7 @@ For complete details about the implementation, please refer to any of the [works
 
 There are two versions available:
 - [`old_scoregenerator`](old_scoregenerator): It contains the score generator considering all three different methods of algorithmic composition.
-- [`scoregenerator`](scoregenerator): This is a newer version that only uses the random walk algorithm for composition, as it has yielded the best results in end-to-end OMR transcription.
+- [`scoregenerator`](scoregenerator): This is a newer version that only uses the random walk algorithm for composition, as it has yielded the best results in end-to-end OMR transcription. Check the corresponding [README](scoregenerator/README.md) for a detailed explanation of this version.
 
 However, please bear in mind that neither of these versions is currently maintained.
 
