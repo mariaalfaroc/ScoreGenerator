@@ -8,7 +8,6 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.9.0-orange" alt="Python">
-  <img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white" alt="PyTorch">
   <img src="https://img.shields.io/static/v1?label=License&message=MIT&color=blue" alt="License">
 </p>
 
@@ -23,8 +22,23 @@
 
 ## About
 
-Describe the work.
+Music score generator implemented in Python. The developed system essentially provides two outputs: the expected transcription of the generated score in multiple encodings and the corresponding score image, both clean and artificially distorted. These outputs yield the necessary pairs for end-to-end deep learning Optical Music Recognition (OMR) systems.
 
+For the generation process, three different methods of algorithmic composition are used to obtain compositions with diverse musical features:
+1) **Random generation based on the normal distribution**. We employ the normal distribution to create a symmetric distribution centered around the pitch corresponding to the space surrounding the central line of the staff.
+2) **Random walk**. A random walk is a mathematical formalization of a trajectory resulting from successive random steps. In this system, the random walk always begins at the central pitch of the pitch range determined for the system. There are three possible random steps, all equally likely, after emitting a pitch:
+- One step forward: the following pitch is the next higher one from the previous.
+- One step backward: the following pitch is the next lower one from the previous.
+- No step: the following pitch remains the same as the previous.
+3) **Sonification of the logistic equation**.
+
+For complete details about the implementation, please refer to any of the [works](#citations) cited below.
+
+There are two versions available:
+- [`old_scoregenerator`](old_scoregenerator): It contains the score generator considering all three different methods of algorithmic composition.
+- [`scoregenerator`](scoregenerator): This is a newer version that only uses the random walk algorithm for composition, as it has yielded the best results in end-to-end OMR transcription.
+
+However, please bear in mind that neither of these versions is currently maintained.
 
 ## Citations
 
